@@ -16,8 +16,9 @@ const Signup = () => {
 
           // creating user through form 
         createUserWithEmailAndPassword(auth, email, password)
-        .then(()=>{
+        .then((result)=>{
             alert(" user created successfullly ")
+            console.log(result.user)
         })
         .catch(error => {
             console.log(error.message)
