@@ -1,7 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo.svg'
+import { useContext } from "react";
+import { AuthContext } from "../../Auth Provider/AuthProvider";
+import { signOut } from "firebase/auth";
+import auth from "../../../firebase.config";
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext)
     const navBar = 
     <>
         <li> <NavLink>Home</NavLink> </li>
@@ -10,6 +15,15 @@ const Navbar = () => {
         <li> <NavLink to='/blog'>Blog</NavLink> </li>
         <li> <NavLink to='/contact'>Contact</NavLink> </li>
     </>
+
+    const handleLogOut = () =>{
+      signOut(auth)
+      .then(()=> {
+        alert("Log Out successfully")
+        console.log(user)
+      })
+      .catch(error=> console.log(error))
+    }
     return (
         <div className="navbar bg-base-100">
         <div className="navbar-start">
@@ -29,7 +43,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        <Link to='/login' className="btn btn-outline border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811]">Appointment</Link>
+        {
+          user?.email ? 
+          <button onClick={handleLogOut} className="btn btn-outline border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811]" >Log Out</button>
+          :
+          <Link to='/login' className="btn btn-outline border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811]">Appointment</Link>
+        }
         </div>
       </div>
     );
