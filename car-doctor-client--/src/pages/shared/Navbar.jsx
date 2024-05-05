@@ -45,7 +45,10 @@ const Navbar = () => {
         <div className="navbar-end">
         {
           user?.email ? 
-          <button onClick={handleLogOut} className="btn btn-outline border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811]" >Log Out</button>
+          <div className="space-x-5">
+            <Link to='/bookings' className="btn btn-outline border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811]" >My Bookings</Link>
+            <button onClick={handleLogOut} className="btn btn-outline border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811]" >Log Out</button>
+          </div>
           :
           <Link to='/login' className="btn btn-outline border-[#FF3811] text-[#FF3811] hover:bg-[#FF3811]">Appointment</Link>
         }
