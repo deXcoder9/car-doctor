@@ -14,7 +14,7 @@ const Banner = () => {
         <h1 className="text-5xl  font-bold">Affordable Price For Car Servicing</h1>
             <p className="text-gray-300">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
             <div className="space-x-8 flex">
-                <button className="bg-[#FF3811] border-none px-4 py-3 rounded-lg text-white">Discover More</button>
+                <button className="btn bg-[#FF3811] border-none px-4 py-3 rounded-lg text-white hover:text-black">Discover More</button>
                 <button className="btn btn-outline text-white border-white">Latest Project</button>
         </div>
         </div>
@@ -30,7 +30,7 @@ const Banner = () => {
         <h1 className="text-5xl  font-bold">Affordable Price For Car Servicing</h1>
             <p className="text-gray-300">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
             <div className="space-x-8 flex">
-                <button className="bg-[#FF3811] border-none px-4 py-3 rounded-lg text-white">Discover More</button>
+                <button className="btn bg-[#FF3811] border-none px-4 py-3 rounded-lg text-white hover:text-black">Discover More</button>
                 <button className="btn btn-outline text-white border-white">Latest Project</button>
         </div>
         </div>
@@ -45,7 +45,7 @@ const Banner = () => {
         <h1 className="text-5xl  font-bold">Affordable Price For Car Servicing</h1>
             <p className="text-gray-300">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
             <div className="space-x-8 flex">
-                <button className="bg-[#FF3811] border-none px-4 py-3 rounded-lg text-white">Discover More</button>
+                <button className="btn bg-[#FF3811] border-none px-4 py-3 rounded-lg text-white hover:text-black">Discover More</button>
                 <button className="btn btn-outline text-white border-white">Latest Project</button>
         </div>
         </div>
@@ -60,7 +60,7 @@ const Banner = () => {
         <h1 className="text-5xl  font-bold">Affordable Price For Car Servicing</h1>
             <p className="text-gray-300">There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
             <div className="space-x-8 flex">
-                <button className="bg-[#FF3811] border-none px-4 py-3 rounded-lg text-white">Discover More</button>
+                <button className="btn bg-[#FF3811] border-none px-4 py-3 rounded-lg text-white hover:text-black">Discover More</button>
                 <button className="btn btn-outline text-white border-white">Latest Project</button>
         </div>
         </div>

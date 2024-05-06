@@ -1,7 +1,7 @@
 import image from "../../src/assets/images/login/login.svg";
 import { FaSquareFacebook, FaLinkedinIn } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
@@ -10,9 +10,13 @@ import {
 import auth from "../../firebase.config";
 import { useContext } from "react";
 import { AuthContext } from "../Auth Provider/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
   const { setUser } = useContext(AuthContext);
+   const location = useLocation()
+   const navigate = useNavigate()
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -24,6 +28,15 @@ const Login = () => {
       console.log(result);
       setUser(result.user);
       alert("user logged in successfullly");
+      const userInfo = {email}
+      // get access token
+      axios.post('http://localhost:5000/jwt', userInfo, {withCredentials: true})
+      .then(res=> {
+        console.log(res.data)
+        if(res.data.success){
+          navigate( location?.state ? location.state : '/' )
+        }
+      })
     });
   };
   // google login
@@ -34,6 +47,7 @@ const Login = () => {
         alert("successfully logged in");
         setUser(result.user);
         console.log(result.user)
+        navigate( location?.state ? location.state : '/' )
       })
       .catch((error) => {
         console.log(error.message);
@@ -53,7 +67,7 @@ const Login = () => {
               <span className="email-text"> Email </span>
             </label>
             <input
-              type="password"
+              type="email"
               placeholder="email"
               name="email"
               className="input input-bordered"
